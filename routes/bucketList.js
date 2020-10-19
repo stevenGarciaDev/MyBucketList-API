@@ -67,7 +67,9 @@ router.post('/:id', auth, async (req, res) => {
       }});
 
     let bucketList = await BucketList.find({ owner: req.params.id })
-    res.send(bucketList[0].listItems);
+    //res.send(bucketList[0].listItems);
+    console.log("listItem", listItem);
+    res.send(listItem);
   } catch (ex) {
     console.log('unable to complete');
     console.log(ex);
