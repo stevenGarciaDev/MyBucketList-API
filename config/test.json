@@ -1,4 +1,4 @@
 {
    "jwtPrivateKey": "mySecureKey",
-   "db": "mongodb://localhost/phuketlist_tests"
+   "db": "mongodb://localhost/mybucketlist_tests"
 }

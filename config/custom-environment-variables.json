@@ -1,5 +1,5 @@
 {
-  "jwtPrivateKey": "phuketList_jwtPrivateKey",
-  "db": "phuketlist_db",
-  "client_domain": "phuketlist_client"
+  "jwtPrivateKey": "myBucketList_jwtPrivateKey",
+  "db": "mybucketlist_db",
+  "client_domain": "mybucketlist_client"
 }
