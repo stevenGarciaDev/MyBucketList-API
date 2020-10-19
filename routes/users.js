@@ -43,14 +43,10 @@ router.post("/", async (req, res) => {
   const newList = new BucketList();
   newList.owner = user._id;
   await newList.save();
-  console.log("test");
-  //creating friends list for user that registers
-  const userFreinds = new Friendship();
 
-  userFreinds.owner = user._id;
-  await userFreinds.save();
-
-  //console.log(this.userFreinds);
+  const userFriends = new Friendship();
+  userFriends.owner = user._id;
+  await userFriends.save();
 
   const token = user.generateAuthToken();
   res
