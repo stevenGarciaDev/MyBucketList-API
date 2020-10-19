@@ -35,29 +35,17 @@ router.post('/newMessageGroup', async (req, res) => {
     let memberIds = req.body.members; // any members in this newMsgGroup
     const mesGroupName = req.body.name; // name of group chat
 
-    //console.log("memberIds");
-    //console.log(memberIds);
-   console.log( mesGroupName);
-
-
     let msgGroup = await MessageGroup.findOne({ name: mesGroupName}); // find msg group with same name as the one sent
-    console.log("members [] : ", msgGroup);
-    console.log( mesGroupName);
     //msgGroup = await MessageGroup.find({ name: '' }); // find msg group with same name as the one sent
-    console.log("members2 [] : ", msgGroup);
 
-    if(msgGroup)
-    {
+    if (msgGroup) {
       let userIsInGroup = false;
-      for (var i=0; i < msgGroup.members.length; i++) // find user in the already existing msg group
-      {
-        if(msgGroup.members[i] == memberIds)
-        {
+      // find user in the already existing msg group
+      for (var i=0; i < msgGroup.members.length; i++) {
+        if (msgGroup.members[i] == memberIds) {
           userIsInGroup = true;
         }
-
       }
-
 
       if (!userIsInGroup) // if user is not already in this group, add him or her to it
       {
@@ -65,13 +53,6 @@ router.post('/newMessageGroup', async (req, res) => {
 
         await msgGroup.save();
       }
-
-      //newMembers.push(memberIds);
-      //msgGroup.members = newMembers;
-      console.log(msgGroup.members);
-
-
-
       res.send(msgGroup);
     }
     else{
@@ -85,14 +66,7 @@ router.post('/newMessageGroup', async (req, res) => {
       await newGroup.save();
 
       res.send(newGroup);
-
-
     }
-
-
-
-
-
   } catch (exception) {
     console.log("Unable to create ", exception);
   }
