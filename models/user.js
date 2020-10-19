@@ -45,7 +45,8 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024
   },
   photo: {
-    type: String
+    type: String,
+    default: ''
   },
   bio: {
     type: String,
@@ -68,7 +69,9 @@ userSchema.methods.generateAuthToken = function() {
     email: this.email,
     isAdmin: this.isAdmin,
     isActiveAccount: this.isActiveAccount,
-    isPrivateProfile: this.isPrivateProfile
+    isPrivateProfile: this.isPrivateProfile,
+    photo: this.photo,
+    bio: this.bio
     },
     config.get('jwtPrivateKey')
   );
