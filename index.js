@@ -18,6 +18,8 @@ const io = require("socket.io")(httpServer);
 var passport = require("passport");
 const path = require('path');
 
+require('./startup/prod')(app);
+
 if (!config.get('jwtPrivateKey')) {
   console.log('FATAL ERROR: jwtPrivateKey is not defined');
   process.exit(1);
