@@ -1,5 +1,5 @@
 {
-   "jwtPrivateKey": "<$We+Y@-b2",
+   "jwtPrivateKey": "a$We+Y@-b2",
    "db": "mongodb+srv://stevenGarciaDev:baseballhs1@cluster0.exzis.mongodb.net/production?retryWrites=true&w=majority",
    "client_domain": "https://phuket-list.herokuapp.com"
 }
