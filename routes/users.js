@@ -205,16 +205,16 @@ router.put('/updatePhoto/:user_id', async (req, res) => {
 
 
 router.post('/forgotPassword', async (req,  res)=> {
-  if(req.body.email === ''){
+  if (req.body.email === '') {
     res.status(400).send('email required');
   }
   let user = await User.findOne({ email: req.body.email });
-  if(user){
+  if (user) {
     const token = crypto.randomBytes(20).toString('hex');
     user.resetPasswordToken = token;
     await user.save();
     user.reserPasswordExpires= Date.now() + 360000;
-    await user.save();
+
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth:{
@@ -229,7 +229,7 @@ router.post('/forgotPassword', async (req,  res)=> {
       text:
         'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n'
         + 'Please click on the following link, or paste this into your browser to complete the process within one hour of receiving it:\n\n'
-        + `https://phuket-list.herokuapp.com/reset/${token}\n\n`
+        + `https://bucket-list-items.herokuapp.com/reset/${token}\n\n`
         + 'If you did not request this, please ignore this email and your password will remain unchanged.\n',
     };
     console.log('sending mail');
